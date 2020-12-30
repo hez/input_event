@@ -61,7 +61,7 @@ $(PREFIX) $(BUILD):
 $(PREFIX)/input_event: $(OBJ)
 	$(CC) $^ $(LDFLAGS) -o $@
 	# For host builds, setuid root the input_event binary so that it can read /dev/input/event*
-	SUDO_ASKPASS=$(SUDO_ASKPASS) $(SUDO) -- sh -c 'chown root:root $@; chmod +s $@'
+	SUDO_ASKPASS=$(SUDO_ASKPASS) $(SUDO) -- sh -c 'chown root:root $@'
 
 clean:
 	rm -f $(PREFIX)/input_event $(BUILD)/*.o
